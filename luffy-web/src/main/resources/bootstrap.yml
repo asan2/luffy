@@ -1,6 +1,6 @@
 spring:
   application:
-    name: luffy-dev
+    name: luffy
   profile:
     active: dev
   cloud:
@@ -8,9 +8,11 @@ spring:
       enabled: false
     nacos:
       config:
-        namespace: cb01a148-133f-4d68-8a0f-d3e40dda0347
+        namespace: e3b2c64c-50a0-49b9-acf9-96f707e448cd
         bootstrap:
           enable: true
         server-addr: http://config.jcokee.com:8848
         group: DEV
         file-extension: yaml
+      discovery:
+        server-addr: http://config.jcokee.com:88480
