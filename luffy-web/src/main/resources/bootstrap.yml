@@ -14,5 +14,6 @@ spring:
         server-addr: http://config.jcokee.com:8848
         group: DEV
         file-extension: yaml
+        prefix: ${spring.application.name}-${spring.profile.active}
       discovery:
-        server-addr: http://config.jcokee.com:88480
+        server-addr: http://config.jcokee.com:8848/
