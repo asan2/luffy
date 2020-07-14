@@ -90,6 +90,7 @@ local.properties
 *.ipr
 *.iws
 .idea/
+.gradle/
 
 ## .gitignore for linux
 .*
