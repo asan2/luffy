@@ -1,5 +1,8 @@
 package com.jcokee;
 
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import tk.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,4 +23,12 @@ public class LuffyApplication {
     SpringApplication.run(LuffyApplication.class, args);
   }
 
+  @Configuration
+  public class SpringSecurityConfig extends WebSecurityConfigurerAdapter
+  {
+    @Override
+    protected void configure(final HttpSecurity http) throws Exception {
+      http.csrf().ignoringAntMatchers("/druid/*");
+    }
+  }
 }

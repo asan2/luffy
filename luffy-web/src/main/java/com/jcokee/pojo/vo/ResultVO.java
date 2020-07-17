@@ -5,14 +5,16 @@ import java.io.Serializable;
 public class ResultVO<T> implements Serializable {
     private static final long serialVersionUID = -6041301804479388563L;
 
+    private static final String RESULT_SUCCESS = "success";
+
     private ResultVO.Status status;
     private String message;
     private T result;
-    private Integer errorCode;
+    private Integer code;
 
-    public ResultVO(ResultVO.Status status, String message) {
-        this.status = status;
-        this.message = message;
+    public ResultVO (T result) {
+        this.status = Status.OK;
+        this.result = result;
     }
 
     public ResultVO(ResultVO.Status status, T result) {
@@ -20,10 +22,10 @@ public class ResultVO<T> implements Serializable {
         this.result = result;
     }
 
-    public ResultVO(ResultVO.Status status, String message, Integer errorCode) {
+    public ResultVO(ResultVO.Status status, String message, Integer code) {
         this.status = status;
         this.message = message;
-        this.errorCode = errorCode;
+        this.code = code;
     }
 
     public boolean isOk() {
@@ -54,12 +56,12 @@ public class ResultVO<T> implements Serializable {
         this.message = message;
     }
 
-    public Integer getErrorCode() {
-        return this.errorCode;
+    public Integer getCode() {
+        return this.code;
     }
 
-    public void setErrorCode(Integer errorCode) {
-        this.errorCode = errorCode;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
     public static enum Status {

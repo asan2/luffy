@@ -9,9 +9,9 @@ import com.jcokee.service.impl.UserServiceImpl;
 import com.jcokee.util.RedisClient;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/v1/user/centre")
+@Slf4j
+@RefreshScope
 public class UserController {
-    private  final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private RedisClient redisClient;

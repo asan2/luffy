@@ -11,6 +11,13 @@ spring:
         group: DEV
         file-extension: yaml
         prefix: ${spring.application.name}-${spring.profile.active}
+        #配置公共配置列表
+        ext-config:
+          -
+            dataId: common-${spring.profile.active}.yaml
+            group: DEV
+            refresh: true
+
       discovery:
         server-addr: http://config.jcokee.com:8848/
         register-enabled: false
